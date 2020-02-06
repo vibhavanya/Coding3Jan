@@ -36,31 +36,8 @@ node {
    archiveArtifacts 'target/*.war'
   }
   
-    stage('Jfrog Artifacory Upload') {
-        def server= Artifactory.server 'Artifactory'
-                    def uploadSpec= """{
-                        "files": [{
-                        "pattern": "/root/.jenkins/workspace/Coding3Jan/target/*.war",
-                        "target": "vibha"}]
-                    }"""
-        server.upload(uploadSpec)
-        
-        }
      
-    stage('Jfrog Artifactory download'){
-    def server= Artifactory.server 'Artifactory'
-    def downloadSpec = """{
-    "files": [
-    {
-      "pattern": "petclinic/*.war",
-      "target": "/root/artifacts/"
-      
-    }
-    ]
-    }"""
-    server.download(downloadSpec)
-   
-}
+ 
    stage('Docker-Stage-Deployment') {
    sh label: '', script: 'docker-compose up -d --build'
   }
