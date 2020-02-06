@@ -20,4 +20,4 @@
 
 FROM tomcat:8.0
 MAINTAINER Vibha
-COPY target/petclinic.war /usr/local/tomcat/webapps/
+COPY target/company-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
