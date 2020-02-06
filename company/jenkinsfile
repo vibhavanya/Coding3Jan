@@ -7,7 +7,7 @@ node {
    git 'https://github.com/vibhavanya/Coding3Jan.git'
   }
     
- def project_path="01-Jenkins/Code/petclinic"
+ def project_path="company"
  
  dir(project_path) {
     
@@ -40,7 +40,7 @@ node {
         def server= Artifactory.server 'Artifactory'
                     def uploadSpec= """{
                         "files": [{
-                        "pattern": "/root/.jenkins/workspace/fin/01-Jenkins/Code/petclinic/target/*.war",
+                        "pattern": "/root/.jenkins/workspace/Coding3Jan/target/*.war",
                         "target": "vibha1"}]
                     }"""
         server.upload(uploadSpec)
